@@ -12,21 +12,25 @@ import avatar4 from "../public/avatar-4.webp";
 const dummyChannnels = [
     {
         id:1,
+        roomId:20,
         name:'general',
         avatar: avatar1
     },
     {
         id:2,
+        roomId:25,
         name:"Elon Musk",
         avatar: avatar2
     },
     {
         id:3,
+        roomId:30,
         name:"Sandeep Saini",
         avatar: avatar3
     },
     {
         id:4,
+        roomId:35,
         name:"Rudransh Shinghal",
         avatar: avatar4
     }
@@ -38,14 +42,14 @@ const Sidebar = () => {
     const [channels,setChannels] = useState(dummyChannnels)
     return( 
     <div className={styles.wrapper}> 
-        {channels.map((channel,index)=>{
+        {channels.map((channel,index)=>(
             <RoomAvatar
                 key ={index}
                 id ={channel.roomId}
                 avatar ={channel.avatar}
                 name ={channel.roomName}
             />
-        })}
+        ))} 
     </div>
     )
 } 
