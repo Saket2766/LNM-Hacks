@@ -13,7 +13,7 @@ const dummyChannnels = [
     {
         id:1,
         roomId:20,
-        name:'general',
+        name:'Saket Samarth',
         avatar: avatar1
     },
     {
@@ -47,7 +47,7 @@ const Sidebar = () => {
                 key ={index}
                 id ={channel.roomId}
                 avatar ={channel.avatar}
-                name ={channel.roomName}
+                name ={channel.name}
             />
         ))} 
     </div>

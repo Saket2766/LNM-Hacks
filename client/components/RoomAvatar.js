@@ -7,7 +7,7 @@ const RoomAvatar =({id,avatar,name})=>{
 
     const router = useRouter(); 
     const changeUrl = () => {
-        router.push('?channel=${id}&name=${name}')
+        router.push(`?channel=${id}&name=${name}`)
     };
 
     return (
