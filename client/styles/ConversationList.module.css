@@ -3,8 +3,13 @@
     overflow-y: scroll;
     position: relative;
     background: #2f3136;
+    scrollbar-width: none;
   }
   
+  .conversations::-webkit-scrollbar {
+    display: none;
+  }
+
   .conversationsContainer {
     padding: 10px;
   }

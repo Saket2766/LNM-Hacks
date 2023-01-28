@@ -3,8 +3,9 @@ import styles from "../styles/DMCard.module.css";
 import Image from "next/image";
 
 const DMCard = ({name,status,avatar,id}) => {
+    const router = useRouter();
     const changeURL = () => {
-
+        router.push(`?conversation =${id}&name=${name}`)
     }
 
     return(

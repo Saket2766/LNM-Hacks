@@ -4,4 +4,9 @@
     position: relative;
     flex: 1;
     padding-top: 10px;
+    scrollbar-width: none;
+  }
+
+  .wrapper::-webkit-scrollbar {
+    display: none;
   }

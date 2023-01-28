@@ -8,11 +8,13 @@ import personPlus from "../public/icons/person-plus.svg";
 import Image from "next/image";
 import styles from "../styles/ChatHeader.module.css";
 import ethLogo from "../public/eth.png";
+import { useContext } from "react";
+import { DiscordContext } from "@/context/context";
 
 const currentAccount = "0x86da4B54934Bfd877CF2f85368074096F5662fe0"
 
 const ChatHeader = () =>{
-
+    const {roomName,currentAccount,connectWallet} = useContext(DiscordContext);
     return (<div className={styles.chatHeader}>
         <div className ={styles.roomNameContainer}>
             <Image
@@ -22,7 +24,7 @@ const ChatHeader = () =>{
                 className = {styles.svg}
                 alt = "at"
             />
-            <h3 className={styles.title}>Room Name</h3>
+            <h3 className={styles.title}>{roomName}</h3>
             <div className={styles.chatHeaderStatus} id='online' />
         </div>
         {currentAccount ? (

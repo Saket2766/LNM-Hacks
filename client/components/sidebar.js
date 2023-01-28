@@ -11,23 +11,23 @@ import avatar4 from "../public/avatar-4.webp";
 
 const dummyChannnels = [
     {
-        roomId:1,
-        roomName:'Saket Samarth',
+        roomId: 1,
+        roomName: 'Saket Samarth',
         avatar: avatar1
     },
     {
-        roomId:2,
-        roomName:"Elon Musk",
+        roomId: 2,
+        roomName: "Elon Musk",
         avatar: avatar2
     },
     {
-        roomId:3,
-        roomName:"Sandeep Saini",
+        roomId: 3,
+        roomName: "Sandeep Saini",
         avatar: avatar3
     },
     {
-        roomId:4,
-        roomName:"Rudransh Shinghal",
+        roomId: 4,
+        roomName: "Rudransh Shinghal",
         avatar: avatar4
     }
 ]
@@ -35,19 +35,35 @@ const dummyChannnels = [
 
 const Sidebar = () => {
     const router = useRouter();
-    const [channels,setChannels] = useState(dummyChannnels)
-    return( 
-    <div className={styles.wrapper}> 
-        {channels.map((channel,index)=>(
+    const [channels, setChannels] = useState(dummyChannnels)
+
+    useEffect(async () => {
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/getchannels`,
+          )
+    
+          const data = await response.json();
+          setChannels(data)
+    
+          router.push(`?channel=${data[0].roomId}&name=${data[0].roomName}`)
+        } catch (error) {
+          console.error(error)
+        }
+      }, [])
+      
+return (
+    <div className={styles.wrapper}>
+        {channels.map((channel, index) => (
             <RoomAvatar
-                key ={index}
-                id ={channel.roomId}
-                avatar ={channel.avatar}
-                name ={channel.roomName}
+                key={index}
+                id={channel.roomId}
+                avatar={channel.avatar}
+                name={channel.roomName}
             />
-        ))} 
+        ))}
     </div>
-    )
-} 
+)
+}
 
 export default Sidebar;

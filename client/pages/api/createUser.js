@@ -10,5 +10,14 @@ export default async (req,res) =>{
         walletAddress: userAddress,   
     }
 
+    try{
+        await client.createIfNotExists(userDoc)
+
+        res.status(200).send('Successful')
+    }catch(error){
+        console.log(error)
+        res.status(500).send(error)
+    }
+
     
 }
