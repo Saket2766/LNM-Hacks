@@ -8,7 +8,7 @@
   height: 100%;
   overflow-y: scroll;
   position: relative;
-  flex: 12;
+  flex: 14;
   background: var(--light-grey);
   display: flex;
   width: 100vw;

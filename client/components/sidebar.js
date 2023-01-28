@@ -11,27 +11,23 @@ import avatar4 from "../public/avatar-4.webp";
 
 const dummyChannnels = [
     {
-        id:1,
-        roomId:20,
-        name:'Saket Samarth',
+        roomId:1,
+        roomName:'Saket Samarth',
         avatar: avatar1
     },
     {
-        id:2,
-        roomId:25,
-        name:"Elon Musk",
+        roomId:2,
+        roomName:"Elon Musk",
         avatar: avatar2
     },
     {
-        id:3,
-        roomId:30,
-        name:"Sandeep Saini",
+        roomId:3,
+        roomName:"Sandeep Saini",
         avatar: avatar3
     },
     {
-        id:4,
-        roomId:35,
-        name:"Rudransh Shinghal",
+        roomId:4,
+        roomName:"Rudransh Shinghal",
         avatar: avatar4
     }
 ]
@@ -47,7 +43,7 @@ const Sidebar = () => {
                 key ={index}
                 id ={channel.roomId}
                 avatar ={channel.avatar}
-                name ={channel.name}
+                name ={channel.roomName}
             />
         ))} 
     </div>
