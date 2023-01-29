@@ -27,6 +27,8 @@ export const DiscordProvider = ({ children }) => {
   const [placeholder, setPlaceholder] = useState('Message...')
   const [messageText, setMessageText] = useState('')
   const [currentUser, setCurrentUser] = useState()
+  const [showHuddle, setShowHuddle] = useState(0)
+
 
   useEffect(() => {
     checkIfWalletIsConnected()

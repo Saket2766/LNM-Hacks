@@ -1,4 +1,5 @@
 import inbox from "../public/icons/inbox.svg";
+import { ReactDOM } from "react";
 import phone from "../public/icons/phone.svg";
 import help from "../public/icons/help.svg";
 import pin from "../public/icons/pin.svg";
@@ -10,17 +11,20 @@ import styles from "../styles/ChatHeader.module.css";
 import ethLogo from "../public/eth.png";
 import { useContext } from "react";
 import { DiscordContext } from "@/context/context";
+import hudstyle from "../styles/Home.module.css";
 
 
 const currentAccount = "0x86da4B54934Bfd877CF2f85368074096F5662fe0"
 
 
-function openHuddle(){
-  
-}
+
 
 const ChatHeader = () =>{
-    const {roomName,currentAccount,connectWallet} = useContext(DiscordContext);
+    const {roomName,currentAccount,connectWallet,showHuddle} = useContext(DiscordContext);
+
+    function openHuddle(){
+      
+    }
     return (<div className={styles.chatHeader}>
         <div className ={styles.roomNameContainer}>
             <Image
