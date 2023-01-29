@@ -18,3 +18,8 @@
 .main::-webkit-scrollbar {
   display: none;
 }
+
+.Iframe{
+  position: relative;
+  display: none;
+}

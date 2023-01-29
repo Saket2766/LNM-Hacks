@@ -11,7 +11,13 @@ import ethLogo from "../public/eth.png";
 import { useContext } from "react";
 import { DiscordContext } from "@/context/context";
 
+
 const currentAccount = "0x86da4B54934Bfd877CF2f85368074096F5662fe0"
+
+
+function openHuddle(){
+  
+}
 
 const ChatHeader = () =>{
     const {roomName,currentAccount,connectWallet} = useContext(DiscordContext);
