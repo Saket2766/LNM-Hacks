@@ -11,7 +11,7 @@ import styles from "../styles/ChatHeader.module.css";
 import ethLogo from "../public/eth.png";
 import { useContext } from "react";
 import { DiscordContext } from "@/context/context";
-import hudstyle from "../styles/Home.module.css";
+import Router from "next/router";
 
 
 const currentAccount = "0x86da4B54934Bfd877CF2f85368074096F5662fe0"
@@ -20,10 +20,10 @@ const currentAccount = "0x86da4B54934Bfd877CF2f85368074096F5662fe0"
 
 
 const ChatHeader = () =>{
-    const {roomName,currentAccount,connectWallet,showHuddle} = useContext(DiscordContext);
+    const {roomName,currentAccount,connectWallet} = useContext(DiscordContext);
 
     function openHuddle(){
-      
+      Router.push(`huddle`)
     }
     return (<div className={styles.chatHeader}>
         <div className ={styles.roomNameContainer}>
@@ -59,7 +59,7 @@ const ChatHeader = () =>{
             alt=''
           />
         </div>
-        <div className={styles.headerItem}>
+        <div className={styles.headerItem} onClick ={openHuddle}>
           <Image
             height={25}
             width={25}
