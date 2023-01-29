@@ -1,7 +1,7 @@
 import {client} from '../../lib/client'
 
 export default async (req,res) =>{
-    const {useAddress} =req.body;
+    const {userAddress} =req.body
 
     const userDoc = {
         _type: 'users',

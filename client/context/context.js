@@ -1,10 +1,11 @@
 import { createContext, useState, useEffect, useReducer } from 'react'
 import { useRouter } from 'next/router'
-import Gun from 'gun'
+const Gun  = require('gun/gun')
+
 
 export const DiscordContext = createContext()
 
-const gun = Gun(['localhost:9000'])
+const gun = Gun(['http://localhost:9000'])
 
 const initialState = { messages: [] }
 
@@ -33,7 +34,19 @@ export const DiscordProvider = ({ children }) => {
 
   
 
-  useEffect(async () => {
+  useEffect( () => {
+    contextfix1()
+  }, [currentAccount])
+
+  useEffect(() => {
+    setRoomName(router.query.name)
+    dispatch({ type: 'clear', data: {} })
+    setPlaceholder(`Message ${router.query.name}`)
+    setMessageText('')
+    getMessages()
+  }, [router.query])
+
+  async function contextfix1 () {
     if (!currentAccount) return
 
     try {
@@ -46,15 +59,7 @@ export const DiscordProvider = ({ children }) => {
     } catch (error) {
       console.error(error)
     }
-  }, [currentAccount])
-
-  useEffect(() => {
-    setRoomName(router.query.name)
-    dispatch({ type: 'clear', data: {} })
-    setPlaceholder(`Message ${router.query.name}`)
-    setMessageText('')
-    getMessages()
-  }, [router.query])
+  }
 
   const getMessages = () => {
     const _name = router.query.name

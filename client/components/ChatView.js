@@ -2,15 +2,16 @@ import styles from "../styles/ChatView.module.css";
 import ChatHeader from "./ChatHeader";
 import MessageForm from "./MessageForm";
 import { useContext } from "react";
-import { DiscordContext } from "@/context/context";
+import { DiscordContext } from "../context/context";
+import MessageCard from "./MessageCard";
 
 
 const ChatView = () => {
-    const {state} = useContext(DiscordContext);
+  const { state } = useContext(DiscordContext)
 
-    const formattedMessagesArray = () =>{
-        const uniqueArray = state.messages.filter((value,index) => {
-            const _value = JSON.stringify(value)
+  const formattedMessagesArray = () => {
+    const uniqueArray = state.messages.filter((value, index) => {
+      const _value = JSON.stringify(value)
 
       return (
         index ===
@@ -18,13 +19,15 @@ const ChatView = () => {
           return JSON.stringify(obj) === _value
         })
       )
-        })
-    }
-    return(
-        <div className={styles.chatView}>
-            <ChatHeader/>
-            <div className={styles.messagesContainer}>
-            {formattedMessagesArray().map((message, index) => (
+    })
+
+    return uniqueArray
+  }
+  return (
+    <div className={styles.chatView}>
+      <ChatHeader />
+      <div className={styles.messagesContainer}>
+        {formattedMessagesArray().map((message, index) => (
           <MessageCard
             key={index}
             avatar={message.avatar}
@@ -33,10 +36,10 @@ const ChatView = () => {
             content={message.content}
           />
         ))}
-                <MessageForm />
-            </div>
-        </div>
-    )
+      </div>
+      <MessageForm />
+    </div>
+  )
 }
 
-export default ChatView;
+export default ChatView

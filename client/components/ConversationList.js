@@ -11,25 +11,33 @@ import avatar2 from "../public/avatar-2.png";
 import avatar3 from "../public/avatar-3.webp";
 import avatar4 from "../public/avatar-4.webp";
 
+const dummyDms = [{
+    id: 1 ,
+    name: "Sandy" ,
+    avatar: avatar1
+}]
 
 
 
 const ConversationList = () => {
     const [dms,setDms] = useState([])
 
-    useEffect(async () => {
+    async function convListfix (){
         try {
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/getdms`,
-          )
-    
-          const data = await response.json()
-          setChannels(data)
-    
-          router.push(`?channel=${data[0].roomId}&name=${data[0].roomName}`)
-        } catch (error) {
-          console.error(error)
-        }
+            const response = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/getdms`,
+            )
+      
+            const data = await response.json()
+            setChannels(data)
+            router.push(`?channel=${data[0].roomId}&name=${data[0].roomName}`)
+          } catch (error) {
+            console.error(error)
+          }
+    } 
+
+    useEffect( () => {
+        convListfix
       }, [])
 
     return (

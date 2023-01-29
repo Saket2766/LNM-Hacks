@@ -1,6 +1,7 @@
 import react from "react";
 import styles from "../styles/DMCard.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const DMCard = ({name,status,avatar,id}) => {
     const router = useRouter();
