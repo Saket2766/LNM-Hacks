@@ -53,7 +53,7 @@ const Sidebar = () => {
     }
 
     useEffect(() => {
-        sidebarfix
+        sidebarfix()
       }, [])
       
 return (
